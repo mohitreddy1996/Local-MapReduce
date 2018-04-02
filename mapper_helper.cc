@@ -3,7 +3,7 @@
 using namespace std;
 
 namespace map_reduce {
-	int create_mappers_input(const string& input_file) {
+	int create_mapper_input(const string& input_file) {
 		ifstream file_stream(input_file);
 		vector<string> string_list{istream_iterator<string>(file_stream), {}};
 		int strings_so_far = 1;
