@@ -24,4 +24,8 @@ namespace map_reduce {
 		}
 		return ceil((strings_so_far - 1) / MAX_SIZE_MAP_INPUT);
 	}
+
+	void mapper_routine() {
+		
+	}
 }
