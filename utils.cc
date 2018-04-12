@@ -22,11 +22,11 @@ namespace {
 }
 
 string get_split_file_name(const int count_number) {
-	return "map_ " + to_string(count_number - 1);
+	return "logs/map_" + to_string(count_number - 1);
 }
 
 string get_merge_split_file_name(const int count_number) {
-	return "group_" + to_string(count_number - 1);
+	return "logs/group_" + to_string(count_number - 1);
 }
 
 void process_map_file(const string& fname) {
@@ -38,7 +38,7 @@ void process_map_file(const string& fname) {
 	}
 	sort(string_count.begin(), string_count.end());
 	ofstream output_file;
-	string output_file_name = "processed_map_";
+	string output_file_name = "logs/processed_map_";
 	vector<string> split_file_name;
 	split_string(fname, split_file_name, '_');
 	output_file_name += split_file_name[split_file_name.size() - 1];
@@ -46,5 +46,17 @@ void process_map_file(const string& fname) {
 	for (auto string_count_pair : string_count) {
 		output_file << string_count_pair.first << " " << to_string(string_count_pair.second) << "\n";
 	}
+	output_file.close();
+}
+
+void reduce_file(const string& fname) {
+	ifstream input_file(fname);
+	ofstream output_file;
+	vector<string> string_list{istream_iterator<string>(input_file), {}};
+	vector<string> split_file_name;
+	split_string(fname, split_file_name, '_');
+	string output_file_name = "logs/reduce_" + split_file_name[split_file_name.size() - 1];
+	output_file.open(output_file_name);
+	output_file << string_list[0] << " " << string_list.size() / 2 << "\n";
 	output_file.close();
 }

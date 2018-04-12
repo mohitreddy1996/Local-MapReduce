@@ -1,4 +1,10 @@
 #include <bits/stdc++.h>
+#include <map>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "utils.h"
 
 using namespace std;
 
@@ -70,7 +76,7 @@ private:
 	/*
 	* Perform mapping.
 	*/
-	void map(const string& fname);
+	void map_(const string& fname);
 
 	/*
 	* Inform master regarding completion.
@@ -103,7 +109,7 @@ private:
 	/*
 	* Ask parent to start the fork and assigning tasks.
 	*/
-	void user_routine();
+	void parent_routine();
 
 public:
 	MapReduce();

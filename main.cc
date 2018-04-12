@@ -1,4 +1,8 @@
 #include <bits/stdc++.h>
+#include <sys/types.h>
+ #include <unistd.h>
+ #include <stdio.h>
+ #include <stdlib.h>
 #include "map_reduce.h"
 
 using namespace std;
